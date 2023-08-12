@@ -79,8 +79,9 @@ function renderProject() {
         <p>durasi : ${data[i].duration}</p>
         <p class="description">${data[i].description}</p>
         <div class="icon">
-          <i class="fa-brands fa-android" style="color: #000000"></i>
-          <i class="fa-brands fa-java" style="color: #000000"></i>
+          <i class="fa-brands fa-js" style="color: #000000"></i>
+          <i class="fa-brands fa-react" style="color: #000000"></i>
+          <i class="fa-brands fa-node" style="color: #000000"></i>
         </div>
         <p>${getDistance(data[i].postAt)}</p>
         <div class="button-group">
