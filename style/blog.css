@@ -148,6 +148,7 @@ input {
   box-shadow: 0 10px 10px #dbdbdb;
   padding: 10px;
   width: 300px;
+  height: 450px;
   overflow: hidden;
 }
 
@@ -160,20 +161,31 @@ input {
 .my-project .card-project .row h3 {
   font-size: 14px;
   margin: 10px;
+
+  overflow: hidden;
+  --max-line: 1;
 }
 .my-project .card-project .row h3 a {
   text-decoration: none;
+  --max-line: 1;
+  overflow: hidden;
   color: black;
   width: 100%;
 }
 
 .my-project .card-project .row p {
-  width: 100%;
+  width: 280px;
   margin: 10px;
   overflow: hidden;
   font-size: 15px;
   font-weight: 500;
 }
+.my-project .card-project .row .description {
+  width: 280px;
+  height: 65px;
+  --max-line: 3;
+}
+
 .my-project .card-project .row .icon {
   display: flex;
   margin: 10px;

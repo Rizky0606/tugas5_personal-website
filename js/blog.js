@@ -7,15 +7,56 @@ function handleAddProject(event) {
   let startDate = document.getElementById("date-start").value;
   let endDate = document.getElementById("date-end").value;
   let description = document.getElementById("input-description").value;
+  let checkbox = document.querySelectorAll(".checkbox:checked");
   let image = document.getElementById("input-file").files;
   image = URL.createObjectURL(image[0]);
+
+  if (
+    name == "" ||
+    startDate == "" ||
+    endDate == "" ||
+    description == "" ||
+    checkbox.length == 0 ||
+    image == ""
+  ) {
+    return alert("Form tidak boleh kosong");
+  }
+
+  let start = new Date(startDate);
+  let end = new Date(endDate);
+
+  if (start > end) {
+    return alert("End Date cannot be less than Start Date");
+  }
+  let times = end.getTime() - start.getTime();
+  let milisecond = 1000;
+  let secondInHours = 3600;
+  let hoursInDays = 24;
+  let days = times / (milisecond * secondInHours * hoursInDays);
+  let weeks = Math.floor(days / 7);
+  let months = Math.floor(weeks / 4);
+  let years = Math.floor(months / 12);
+  let duration = "";
+  console.log("minggu ", weeks, " months ", months);
+
+  if (years > 0) {
+    duration = `${years} Tahun`;
+  } else if (months > 0) {
+    duration = `${months} Bulan`;
+  } else if (weeks > 0) {
+    duration = `${weeks} Minggu`;
+  } else {
+    duration = `${days} Hari`;
+  }
 
   let project = {
     name,
     startDate,
     endDate,
     postAt: new Date(),
+    duration,
     description,
+    checkbox,
     image,
   };
 
@@ -30,13 +71,14 @@ function handleAddProject(event) {
 function renderProject() {
   document.getElementById("card-project").innerHTML = "";
   for (let i = 0; i < data.length; i++) {
+    // <p>${getFullTime(data[i].postAt)}</p>
     document.getElementById("card-project").innerHTML += `
     <div class="row">
         <img src="${data[i].image}" alt="" />
         <h3><a href="../project-detail.html" >${data[i].name}</a></h3>
-        <p>durasi : ${getDistance(data[i].postAt)}</p>
-        <p>${getFullTime(data[i].postAt)}</p>
-        <p>${data[i].description}</p>
+        <p>durasi : ${data[i].duration}</p>
+        
+        <p class="description">${data[i].description}</p>
         <div class="icon">
           <i class="fa-brands fa-android" style="color: #000000"></i>
           <i class="fa-brands fa-java" style="color: #000000"></i>
