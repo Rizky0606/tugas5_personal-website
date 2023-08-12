@@ -152,6 +152,15 @@ input {
   overflow: hidden;
 }
 
+.my-project .card-project .row .project-post {
+  position: absolute;
+  background-color: white;
+  width: 130px;
+  padding: 3px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
 .my-project .card-project .row img {
   width: 100%;
   height: 200px;

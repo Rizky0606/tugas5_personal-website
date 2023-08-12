@@ -71,18 +71,18 @@ function handleAddProject(event) {
 function renderProject() {
   document.getElementById("card-project").innerHTML = "";
   for (let i = 0; i < data.length; i++) {
-    // <p>${getFullTime(data[i].postAt)}</p>
     document.getElementById("card-project").innerHTML += `
     <div class="row">
+        <p class="project-post">${getFullTime(data[i].postAt)}</p>
         <img src="${data[i].image}" alt="" />
         <h3><a href="../project-detail.html" >${data[i].name}</a></h3>
         <p>durasi : ${data[i].duration}</p>
-        
         <p class="description">${data[i].description}</p>
         <div class="icon">
           <i class="fa-brands fa-android" style="color: #000000"></i>
           <i class="fa-brands fa-java" style="color: #000000"></i>
         </div>
+        <p>${getDistance(data[i].postAt)}</p>
         <div class="button-group">
           <button>edit</button>
           <button>delete</button>
@@ -182,4 +182,4 @@ function getDistance(time) {
 
 setInterval(function () {
   renderProject();
-}, 3000);
+}, 1000);
