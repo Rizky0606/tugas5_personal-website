@@ -170,9 +170,8 @@ input {
   margin: 0;
 }
 .my-project .card-project .row h3 {
-  font-size: 14px;
+  font-size: 20px;
   margin: 10px;
-
   overflow: hidden;
   --max-line: 1;
 }
