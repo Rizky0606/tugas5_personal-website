@@ -14,4 +14,13 @@ function handleSubmit() {
   ) {
     return alert("Form tidak boleh kosong");
   }
+
+  let emailReceiver = "rizkyfauzi132@gmail.com";
+
+  let a = document.createElement("a");
+  a.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailReceiver}&su=${subject}&body=${message}`;
+  a.click();
+
+  let data = { name, email, phoneNumber, subject, message };
+  console.log(data);
 }
